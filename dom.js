@@ -100,13 +100,147 @@ var selector= document.querySelector("select");
 
 //selector.addEventListener("change", runEvent)
 
-form.addEventListener("submit", runEvent)
-
-function runEvent(e) {
-	e.preventDefault()
-	console.log(e.target)
-	console.log(e.target.value)
+//form.addEventListener("submit", runEvent)
+//
+//function runEvent(e) {
+//	e.preventDefault()
+//	console.log(e.target)
+//	console.log(e.target.value)
 //	output.textContent = "MouseX: " + e.offsetX + ", MouseY: " + e.offsetY;
 //	document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
+//}
+
+
+var form = document.getElementById("addForm");
+var itemList = document.getElementById("items");
+var filter = document.getElementById("filter");
+
+// Form submit event
+
+form.addEventListener("submit", addItem);
+
+// Delete evetn
+
+itemList.addEventListener("click", removeItem);
+
+filter.addEventListener("keyup", filterItems);
+
+function addItem(e) {
+	e.preventDefault();
+	// Get input value
+	var newItem = document.getElementById("item").value;
+	
+	// Create new li element
+	var li = document.createElement("li");
+	// Add class
+	li.className = "list-group-item";
+	// Add text node with input value
+	li.appendChild(document.createTextNode(newItem));
+	
+	// Create del button element
+	var deleteButton = document.createElement("button");
+
+	// Add classes to del button
+	deleteButton.className = "btn btn-danger btn-sm float-right delete";
+	// Add text node
+	
+	deleteButton.appendChild(document.createTextNode("X"))
+	
+	// Append delete button to li
+	
+	li.appendChild(deleteButton)
+	
+	// Append li to list
+	
+	itemList.appendChild(li)
 }
+
+function removeItem(e) {
+	if(e.target.classList.contains("delete")) {
+		if(confirm("Are You Sure?")) {
+			var li = e.target.parentElement	
+			itemList.removeChild(li)
+		}
+	}
+}
+
+function filterItems(e) {
+	// Convert text to lowercase
+	
+	var text = e.target.value.toLowerCase();
+//	console.log(text)
+	var items = itemList.getElementsByTagName("li");
+	// Convert to array
+//	Array.from(items).forEach(function(item) {
+//		var itemName = item.firstChild.textContent;
+//		console.log(itemName)
+//	})
+	
+	// Loop trought list item names
+	for(var i = 0; i < items.length; i++) {
+		var item = items[i]
+		var itemName = item.firstChild.textContent
+		console.log(itemName)
+		if (itemName.toLowerCase().indexOf(text) != -1) {
+			item.style.display = "";
+		} else {
+			item.style.display = "none";
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
