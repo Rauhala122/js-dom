@@ -1,16 +1,4 @@
-
 var button = document.getElementById("button")
-
-//button.addEventListener("click", buttonClicked)
-
-//function buttonClicked(a) {
-////	alert(e.target.id)
-////	alert(e.clientX)
-//	
-////	alert(e.altKey)
-////	alert(e.shiftKey)
-////	alert(e.ctrlKey)
-//}
 
 var itemList = document.querySelector("#items")
 // ParentNode
@@ -41,30 +29,84 @@ var itemList = document.querySelector("#items")
 
 // Create Div
 
-var newDiv = document.createElement("div");
+//var newDiv = document.createElement("div");
+//
+//// Add class
+//newDiv.className = "hello";
+//
+//// Add id
+//
+//newDiv.id = "hello1"
+//
+//// Add attribute
+//
+//newDiv.setAttribute("title", "HelloDiv");
+//
+//// Create text node
+//
+//var newDivText = document.createTextNode("hello world");
+//
+//// Add text to div
+//
+//newDiv.appendChild(newDivText);
+//
+//var container = document.querySelector("header .container");
+//var h1 = document.querySelector("header h1");
+//
+//console.log(newDiv);
+//
+//container.insertBefore(newDiv, h1)
 
-// Add class
-newDiv.className = "hello";
+var output = document.getElementById("output");
 
-// Add id
+// Events
+var button = document.getElementById("button");
+var box = document.getElementById("box");
+var itemInput = document.querySelector('input[type="text"]');
+var form = document.querySelector("form");
+var selector= document.querySelector("select");
 
-newDiv.id = "hello1"
 
-// Add attribute
+//var button = document.createElement("button");
+//button.className = "btn btn-primary"
+//button.textContent = "Click Here"
+//
+//var container = document.getElementById("list-container");
+//container.appendChild(button)
 
-newDiv.setAttribute("title", "HelloDiv");
+//itemInput.addEventListener("keyup", runEvent)
+//itemInput.addEventListener("focus", runEvent)
+//itemInput.addEventListener("blur", runEvent)
+//
+//itemInput.addEventListener("cut", runEvent)
+//itemInput.addEventListener("paste", runEvent)
 
-// Create text node
+//
+//button.addEventListener("mouseover", runEvent)
+//
+//function buttonClicked(event) {
+////	console.log(24)
+//	console.log(event.target.id)
+//	console.log(event.target.className)
+//	console.log(event.clientX)
+//
+////	console.log(e.type)
+//}
+//
 
-var newDivText = document.createTextNode("hello world");
+//box.addEventListener("mouseenter", runEvent)
+//box.addEventListener("mouseleave", runEvent)
+//box.addEventListener("keyup", runEvent)
 
-// Add text to div
+//selector.addEventListener("change", runEvent)
 
-newDiv.appendChild(newDivText);
+form.addEventListener("submit", runEvent)
 
-var container = document.querySelector("header .container");
-var h1 = document.querySelector("header h1");
+function runEvent(e) {
+	e.preventDefault()
+	console.log(e.target)
+	console.log(e.target.value)
+//	output.textContent = "MouseX: " + e.offsetX + ", MouseY: " + e.offsetY;
+//	document.body.style.backgroundColor = "rgb("+e.offsetX+","+e.offsetY+", 40)";
+}
 
-console.log(newDiv);
-
-container.insertBefore(newDiv, h1)
